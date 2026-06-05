@@ -11,7 +11,7 @@ djangorestframework-simplejwt
 requests
 cryptography
 google-auth
-psycopg2-binary==2.9.9
+psycopg[binary]
 gunicorn>=22.0.0
 whitenoise
 python-dotenv
