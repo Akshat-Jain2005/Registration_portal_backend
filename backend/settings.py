@@ -41,39 +41,13 @@ else:
     SECRET_KEY = 'django-insecure--3g&z!gqf%c#1=mpd3&(+_i^90ej1gep(%8=u9xk(=r!#se5&9'
     DEBUG = True
 
-ALLOWED_HOSTS = [
-    "reg26-api.alcheringa.co.in",
-    "localhost",
-    "127.0.0.1"
-]
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
 
 CORS_ALLOW_ALL_ORIGINS = False
-CORS_ALLOWED_ORIGINS = [ 
-    "https://reg.alcheringa.co.in",
-    "https://registrations.alcheringa.co.in",
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
-]
+CORS_ALLOWED_ORIGINS = os.environ.get('CORS_ALLOWED_ORIGINS', 'http://localhost:3000,http://127.0.0.1:3000').split(',')
 CORS_ALLOW_CREDENTIALS = True
 
-if PROD:
-    CSRF_TRUSTED_ORIGINS = [
-        "http://reg26-api.alcheringa.co.in",
-        "https://reg26-api.alcheringa.co.in",
-        "http://reg.alcheringa.co.in",
-        "https://reg.alcheringa.co.in",
-        "http://registrations.alcheringa.co.in",
-        "https://registrations.alcheringa.co.in",
-        "http://localhost:3000",
-        "http://127.0.0.1:3000",
-    ]
-else:
-    CSRF_TRUSTED_ORIGINS = [
-        "http://127.0.0.1:3000",
-        "http://127.0.0.1:8000",
-        "http://localhost:3000",
-        "http://localhost:8000",
-    ]
+CSRF_TRUSTED_ORIGINS = os.environ.get('CORS_ALLOWED_ORIGINS', 'http://localhost:3000,http://localhost:8000').split(',')
 
 AUTH_USER_MODEL = 'users.NewUser'
 
