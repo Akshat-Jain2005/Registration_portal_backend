@@ -310,7 +310,7 @@ def google_login(request):
 
     try:
         # Verify token with Google
-        idinfo = id_token.verify_oauth2_token(token, grequests.Request(), "719905784477-e7cc0nhv3vd6v8r1cmr87asn42bc77uc.apps.googleusercontent.com")
+        idinfo = id_token.verify_oauth2_token(token, grequests.Request(), "652487340527-rluoq76978rnnjg8q9oivucu6b9n67l4.apps.googleusercontent.com")
         email = idinfo['email']
         name = idinfo.get('name', '')
         
